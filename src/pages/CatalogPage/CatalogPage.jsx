@@ -1,11 +1,22 @@
-import CamperList from "../../components/CamperList/CamperList";
+import CamperList from '../../components/CamperList/CamperList';
+import LoadMoreBtn from '../../components/LoadMoreBtn/LoadMoreBtn';
+import { useDispatch } from 'react-redux';
+import { fetchCampers } from '../../redux/camperOps';
+import { useEffect } from 'react';
 
 const CatalogPage = () => {
-    return (
-        <main>
-            <CamperList />
-        </main>
-    );
-}
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCampers({}));
+  }, [dispatch]);
+
+  return (
+    <main>
+      <CamperList />
+      <LoadMoreBtn />
+    </main>
+  );
+};
 
 export default CatalogPage;
