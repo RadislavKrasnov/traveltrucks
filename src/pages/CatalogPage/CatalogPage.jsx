@@ -1,5 +1,11 @@
+import CamperList from "../../components/CamperList/CamperList";
+
 const CatalogPage = () => {
-    return <p>Catalog</p>;
+    return (
+        <main>
+            <CamperList />
+        </main>
+    );
 }
 
 export default CatalogPage;
