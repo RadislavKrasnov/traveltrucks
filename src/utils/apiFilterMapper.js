@@ -1,3 +1,12 @@
+const vehicleDetailsMapper = {
+  form: 'Form',
+  length: 'Length',
+  width: 'Width',
+  height: 'Height',
+  tank: 'Tank',
+  consumption: 'Consumption',
+};
+
 const mapCamperApiFilters = filters => {
   const apiParams = {};
 
@@ -26,4 +35,14 @@ const mapCamperApiFilters = filters => {
   return apiParams;
 };
 
-export { mapCamperApiFilters };
+const mapVehicleDetails = camper => {
+  return Object.entries(vehicleDetailsMapper).reduce(
+    (details, [key, label]) => {
+      details[label] = camper[key];
+      return details;
+    },
+    {}
+  );
+};
+
+export { mapCamperApiFilters, mapVehicleDetails };
