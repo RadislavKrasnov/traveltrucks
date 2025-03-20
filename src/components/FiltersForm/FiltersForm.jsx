@@ -3,6 +3,7 @@ import { setFilters, resetFilters } from '../../redux/filtersSlice';
 import { useDispatch } from 'react-redux';
 import { fetchCampers } from '../../redux/camperOps';
 import { mapCamperApiFilters } from '../../utils/apiFilterMapper';
+import { resetCampers } from '../../redux/campersSlice';
 
 const bodyTypes = ['panelTruck', 'fullyIntegrated', 'alcove'];
 const bodyTypesLabels = {
@@ -36,6 +37,7 @@ const FiltersForm = () => {
       }}
       onSubmit={values => {
         dispatch(resetFilters());
+        dispatch(resetCampers());
         dispatch(setFilters(values));
         const apiFilters = mapCamperApiFilters(values);
         dispatch(fetchCampers({ filters: apiFilters }));

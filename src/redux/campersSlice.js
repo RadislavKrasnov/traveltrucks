@@ -25,6 +25,7 @@ const campersSlice = createSlice({
     incrementPage: state => {
       state.page += 1;
     },
+    resetCampers: () => initialState,
   },
   extraReducers: builder => {
     builder
@@ -49,6 +50,7 @@ const campersSlice = createSlice({
 export const selectCampers = state => state.campers.items;
 export const selectTotal = state => state.campers.total;
 export const selectPage = state => state.campers.page;
+export const selectError = state => state.campers.error;
 
-export const { incrementPage } = campersSlice.actions;
+export const { incrementPage, resetCampers } = campersSlice.actions;
 export default campersSlice.reducer;
