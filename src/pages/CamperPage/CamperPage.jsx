@@ -4,6 +4,7 @@ import { selectCamper } from '../../redux/campersSlice';
 import { useEffect } from 'react';
 import { fetchCamperById } from '../../redux/camperOps';
 import { NavLink, Outlet } from 'react-router-dom';
+import BookingForm from '../../components/BookingForm/BookingForm';
 
 const CamperPage = () => {
   const { id } = useParams();
@@ -30,6 +31,7 @@ const CamperPage = () => {
         </ul>
       </nav>
       <Outlet />
+      <BookingForm />
     </>
   );
 };
