@@ -12,7 +12,7 @@ const CamperPage = () => {
 
   useEffect(() => {
     dispatch(fetchCamperById(id));
-  });
+  }, [dispatch, id]);
 
   if (!camper) return <p>Camper not found</p>;
 

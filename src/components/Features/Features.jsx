@@ -14,7 +14,7 @@ const Features = () => {
     <div>
       <ul>
         {vehicleFeatures.map(feature => (
-          <li>{feature}</li>
+          <li key={feature}>{feature}</li>
         ))}
       </ul>
       <ul>
