@@ -7,6 +7,19 @@ const vehicleDetailsMapper = {
   consumption: 'Consumption',
 };
 
+const vehicleFeatures = [
+  'transmission',
+  'AC',
+  'engine',
+  'kitchen',
+  'radio',
+  'bathroom',
+  'refrigerator',
+  'microwave',
+  'gas',
+  'water',
+];
+
 const mapCamperApiFilters = filters => {
   const apiParams = {};
 
@@ -45,4 +58,20 @@ const mapVehicleDetails = camper => {
   );
 };
 
-export { mapCamperApiFilters, mapVehicleDetails };
+const mapVehicleFeatures = camper => {
+  return vehicleFeatures.reduce((features, feature) => {
+    let value = camper[feature];
+
+    if (value && ['transmission', 'engine'].includes(feature)) {
+      features.push(value);
+    }
+
+    if (value && !['transmission', 'engine'].includes(feature)) {
+      features.push(feature);
+    }
+
+    return features;
+  }, []);
+};
+
+export { mapCamperApiFilters, mapVehicleDetails, mapVehicleFeatures };
