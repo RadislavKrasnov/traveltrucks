@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { fetchCamperById } from '../../redux/camperOps';
 import { NavLink, Outlet } from 'react-router-dom';
 import BookingForm from '../../components/BookingForm/BookingForm';
+import Header from '../../components/Header/Header';
 
 const CamperPage = () => {
   const { id } = useParams();
@@ -19,19 +20,22 @@ const CamperPage = () => {
 
   return (
     <>
-      {JSON.stringify(camper)}
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="features">Features</NavLink>
-          </li>
-          <li>
-            <NavLink to="reviews">Reviews</NavLink>
-          </li>
-        </ul>
-      </nav>
-      <Outlet />
-      <BookingForm />
+      <Header />
+      <main>
+        {JSON.stringify(camper)}
+        <nav>
+          <ul>
+            <li>
+              <NavLink to="features">Features</NavLink>
+            </li>
+            <li>
+              <NavLink to="reviews">Reviews</NavLink>
+            </li>
+          </ul>
+        </nav>
+        <Outlet />
+        <BookingForm />
+      </main>
     </>
   );
 };

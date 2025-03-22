@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { fetchCampers } from '../../redux/camperOps';
 import { useEffect } from 'react';
 import FiltersForm from '../../components/FiltersForm/FiltersForm';
+import Header from '../../components/Header/Header';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -13,11 +14,14 @@ const CatalogPage = () => {
   }, [dispatch]);
 
   return (
-    <main>
-      <FiltersForm />
-      <CamperList />
-      <LoadMoreBtn />
-    </main>
+    <>
+      <Header />
+      <main>
+        <FiltersForm />
+        <CamperList />
+        <LoadMoreBtn />
+      </main>
+    </>
   );
 };
 
