@@ -4,6 +4,9 @@ import { useDispatch } from 'react-redux';
 import { fetchCampers } from '../../redux/camperOps';
 import { mapCamperApiFilters } from '../../utils/apiFilterMapper';
 import { resetCampers } from '../../redux/campersSlice';
+import css from './FiltersForm.module.css';
+import Icon from '../Icon/Icon';
+import clsx from 'clsx';
 
 const bodyTypes = ['panelTruck', 'fullyIntegrated', 'alcove'];
 const bodyTypesLabels = {
@@ -45,11 +48,17 @@ const FiltersForm = () => {
     >
       {({ values, setFieldValue }) => (
         <Form className="filters">
-          <div className="filter-block">
-            <label>Location:</label>
-            <Field type="text" name="location" placeholder="Enter city" />
+          <div className={clsx(css.filterBlock, css.locatinoFilter)}>
+            <label className={css.locationLabel}>Location</label>
+            <Icon id={'location'} className={css.locationIcon} />
+            <Field
+              type="text"
+              name="location"
+              placeholder="City"
+              className={css.locationInput}
+            />
           </div>
-          <div className="filter-block">
+          <div className={css.filterBlock}>
             <label>Body Type:</label>
             <div className="body-types">
               {bodyTypes.map(type => (
@@ -65,7 +74,7 @@ const FiltersForm = () => {
               ))}
             </div>
           </div>
-          <div className="filter-block">
+          <div className={css.filterBlock}>
             <label>Features:</label>
             <div className="features-list">
               {Object.keys(values.features).map(feature => (

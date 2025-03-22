@@ -1,0 +1,46 @@
+.filterBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+.locatinoFilter {
+  position: relative;
+}
+
+.locationIcon {
+  fill: var(--gray);
+  position: absolute;
+  top: 48px;
+  left: 18px;
+}
+
+.locationInput {
+  display: flex;
+  width: 360px;
+  height: 56px;
+  padding: 18px 18px 18px 50px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 12px;
+  background: var(--Inputs, #f7f7f7);
+  color: var(--Gray, #6c717b);
+  font-family: Inter;
+  font-size: 16px;
+  outline: none;
+  border: none;
+}
+
+.locationLabel {
+  color: var(--Gray, #6c717b);
+  margin-bottom: 8px;
+}
+
+.locationInput:focus,
+.locationInput:active {
+  color: var(--main);
+}
+
+.locatinoFilter:focus-within .locationIcon {
+  fill: var(--main);
+}
