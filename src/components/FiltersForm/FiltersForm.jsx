@@ -15,7 +15,7 @@ const bodyTypesLabels = {
   alcove: 'Alcove',
 };
 const featureLabels = {
-  AC: 'Air Conditioning',
+  AC: 'AC',
   bathroom: 'Bathroom',
   TV: 'TV',
   kitchen: 'Kitchen',
@@ -58,43 +58,62 @@ const FiltersForm = () => {
               className={css.locationInput}
             />
           </div>
-          <div className={css.filterBlock}>
-            <label>Body Type:</label>
-            <div className="body-types">
-              {bodyTypes.map(type => (
-                <label key={type}>
-                  <Field
-                    type="radio"
-                    name="bodyType"
-                    value={type}
-                    checked={values.bodyType === type}
-                  />
-                  {bodyTypesLabels[type]}
-                </label>
-              ))}
+          <fieldset>
+            <legend>Filters</legend>
+            <div className={css.filterBlock}>
+              <h3 className={css.filterTitle}>Vehicle equipment</h3>
+              <ul className={css.equipmentFilter}>
+                {Object.keys(values.features).map(feature => (
+                  <li key={feature}>
+                    <label
+                      className={clsx(
+                        css.optionBlock,
+                        values.features[feature] && css.selected
+                      )}
+                    >
+                      <input
+                        type="checkbox"
+                        name={`features.${feature}`}
+                        checked={values.features[feature]}
+                        onChange={() =>
+                          setFieldValue(
+                            `features.${feature}`,
+                            !values.features[feature]
+                          )
+                        }
+                      />
+                      <Icon id={feature} />
+                      {featureLabels[feature]}
+                    </label>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
-          <div className={css.filterBlock}>
-            <label>Features:</label>
-            <div className="features-list">
-              {Object.keys(values.features).map(feature => (
-                <label key={feature}>
-                  <input
-                    type="checkbox"
-                    name={`features.${feature}`}
-                    checked={values.features[feature]}
-                    onChange={() =>
-                      setFieldValue(
-                        `features.${feature}`,
-                        !values.features[feature]
-                      )
-                    }
-                  />
-                  {featureLabels[feature]}
-                </label>
-              ))}
+            <div className={css.filterBlock}>
+              <h3 className={css.filterTitle}>Vehicle type</h3>
+              <ul className={css.typeFilter}>
+                {bodyTypes.map(type => (
+                  <li key={type}>
+                    <label
+                      className={clsx(
+                        css.optionBlock,
+                        values.bodyType === type && css.selected
+                      )}
+                    >
+                      <Field
+                        type="radio"
+                        name="bodyType"
+                        value={type}
+                        checked={values.bodyType === type}
+                      />
+                      <Icon id={type} />
+                      {bodyTypesLabels[type]}
+                    </label>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
+          </fieldset>
           <button type="submit">Search</button>
         </Form>
       )}

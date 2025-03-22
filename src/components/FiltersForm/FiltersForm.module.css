@@ -23,8 +23,8 @@
   align-items: flex-start;
   gap: 10px;
   border-radius: 12px;
-  background: var(--Inputs, #f7f7f7);
-  color: var(--Gray, #6c717b);
+  background: var(--inputs);
+  color: var(--gray);
   font-family: Inter;
   font-size: 16px;
   outline: none;
@@ -32,7 +32,7 @@
 }
 
 .locationLabel {
-  color: var(--Gray, #6c717b);
+  color: var(--gray);
   margin-bottom: 8px;
 }
 
@@ -43,4 +43,66 @@
 
 .locatinoFilter:focus-within .locationIcon {
   fill: var(--main);
+}
+
+fieldset {
+  border: none;
+  margin-top: 40px;
+  padding: 0;
+}
+
+fieldset legend {
+  margin-bottom: 32px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.filterTitle {
+  padding-bottom: 24px;
+}
+
+.equipmentFilter,
+.typeFilter {
+  padding-top: 24px;
+  border-top: 1px solid var(--gray-light);
+  display: flex;
+  width: 360px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.equipmentFilter {
+  padding-bottom: 32px;
+}
+
+.typeFilter {
+  padding-bottom: 40px;
+}
+
+.equipmentFilter li,
+.typeFilter li {
+  margin: 0;
+}
+
+.optionBlock {
+  display: flex;
+  padding: 16px 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  border: 1px solid var(--gray-light);
+  mix-blend-mode: multiply;
+  width: 112px;
+  height: 96px;
+}
+
+.optionBlock input {
+  display: none;
+}
+
+.selected {
+  border: 1px solid var(--button);
+  mix-blend-mode: multiply;
 }
