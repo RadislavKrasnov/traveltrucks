@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  gap: 64px;
+  padding-top: 48px;
+  padding-bottom: 52px;
+}
+
+.sidebar {
+  width: 360px;
+}
+
+.camperList {
+  width: 888px;
+}

@@ -5,6 +5,8 @@ import { fetchCampers } from '../../redux/camperOps';
 import { useEffect } from 'react';
 import FiltersForm from '../../components/FiltersForm/FiltersForm';
 import Header from '../../components/Header/Header';
+import css from './CatalogPage.module.css';
+import clsx from 'clsx';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -17,9 +19,15 @@ const CatalogPage = () => {
     <>
       <Header />
       <main>
-        <FiltersForm />
-        <CamperList />
-        <LoadMoreBtn />
+        <div className={clsx('container', css.container)}>
+          <div className={css.sidebar}>
+            <FiltersForm />
+          </div>
+          <div className={css.camperList}>
+            <CamperList />
+            <LoadMoreBtn />
+          </div>
+        </div>
       </main>
     </>
   );

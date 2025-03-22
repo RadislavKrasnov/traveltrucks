@@ -1,0 +1,49 @@
+.camperItem {
+  border: 1px solid var(--gray-light);
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.camperWrapper {
+  display: flex;
+  gap: 24px;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image {
+  width: 292px;
+  height: 320px;
+}
+
+.camperInfo {
+  width: 524px;
+}
+
+.camperInfoHead {
+  display: flex;
+  justify-content: space-between;
+}
+
+.priceContainer {
+  display: flex;
+  gap: 12px;
+}
+
+.showMoreBtn {
+  display: flex;
+  width: fit-content;
+  padding: 16px 60px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 200px;
+  background: var(--button);
+  color: var(--white);
+  font-family: Inter;
+  text-decoration: none;
+}

@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { selectCampers } from '../../redux/campersSlice';
 import Camper from '../Camper/Camper';
 import { selectError } from '../../redux/campersSlice';
+import css from './CamperList.module.css';
 
 const CamperList = () => {
   const campers = useSelector(selectCampers);
@@ -16,7 +17,7 @@ const CamperList = () => {
   }
 
   return (
-    <ul>
+    <ul className={css.camperList}>
       {campers.map(camper => (
         <Camper key={camper.id} camper={camper} />
       ))}

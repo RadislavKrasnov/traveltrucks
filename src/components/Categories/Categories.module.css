@@ -1,0 +1,18 @@
+.categoryList {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 24px 0;
+  gap: 8px;
+}
+
+.category {
+  display: inline-flex;
+  padding: 12px 18px;
+  align-items: center;
+  border-radius: 100px;
+  background: var(--badges);
+}
+
+.categoryIcon {
+  margin-right: 8px;
+}
