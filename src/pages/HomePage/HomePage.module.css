@@ -1,0 +1,40 @@
+.btn {
+  display: flex;
+  width: fit-content;
+  padding: 16px 60px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 200px;
+  background: var(--button);
+  color: var(--white);
+  font-family: var(--primary-family);
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: var(--button-hover);
+}
+
+.hero {
+  background: center / cover no-repeat url('../../assets/images/home-bg.jpg');
+  padding-left: 64px;
+  padding-top: 260px;
+  height: calc(100vh - 73px);
+}
+
+@media (min-resolution: 192dpi) {
+  .hero {
+    background: center / cover no-repeat
+      url('../../assets/images/home-bg@2x.jpg');
+  }
+}
+
+.hero h1 {
+  margin-bottom: 16px;
+}
+
+.hero h2 {
+  margin-bottom: 40px;
+  color: var(--inputs);
+}

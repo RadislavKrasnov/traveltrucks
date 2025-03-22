@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <header className={css.header}>
       <div className={clsx('container', css.container)}>
-        <Link to="/">
+        <Link to="/" className={css.logo}>
           <Icon id={'logo'} width={136} height={16} />
         </Link>
         <nav className={css.navigation}>
