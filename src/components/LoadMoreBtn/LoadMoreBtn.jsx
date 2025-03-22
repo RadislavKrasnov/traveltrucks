@@ -9,6 +9,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFilters } from '../../redux/filtersSlice';
 import { mapCamperApiFilters } from '../../utils/apiFilterMapper';
+import css from './LoadMoreBtn.module.css';
 
 const LoadMoreBtn = () => {
   const campers = useSelector(selectCampers);
@@ -25,11 +26,13 @@ const LoadMoreBtn = () => {
   };
 
   return (
-    <>
+    <div className={css.toolbar}>
       {campers.length < total && !error && (
-        <button onClick={handleLoadMore}>Load More</button>
+        <button onClick={handleLoadMore} className={css.loadMoreBtn}>
+          Load More
+        </button>
       )}
-    </>
+    </div>
   );
 };
 

@@ -32,7 +32,11 @@ const Camper = ({ camper }) => {
             {trimDescription(camper.description)}
           </div>
           <Categories camper={camper} />
-          <Link to={`/catalog/${camper.id}`} state={location} className={css.showMoreBtn}>
+          <Link
+            to={`/catalog/${camper.id}`}
+            state={location}
+            className={css.showMoreBtn}
+          >
             Show more
           </Link>
         </div>
