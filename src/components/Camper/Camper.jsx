@@ -8,7 +8,7 @@ import { formatPrice, trimDescription } from '../../utils/formatingHelper';
 const Camper = ({ camper }) => {
   const location = useLocation();
   const firstImageUrl =
-    camper.gallery?.length > 0 ? camper.gallery[0].thumb : '';
+    camper?.gallery?.length > 0 ? camper.gallery[0].thumb : '';
 
   return (
     <li className={css.camperItem}>

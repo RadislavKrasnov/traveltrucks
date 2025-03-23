@@ -21,6 +21,20 @@ const vehicleFeatures = [
   'TV',
 ];
 
+export const bodyTypes = ['panelTruck', 'fullyIntegrated', 'alcove'];
+export const bodyTypesLabels = {
+  panelTruck: 'Van',
+  fullyIntegrated: 'Fully Integrated',
+  alcove: 'Alcove',
+};
+export const featureLabels = {
+  AC: 'AC',
+  bathroom: 'Bathroom',
+  TV: 'TV',
+  kitchen: 'Kitchen',
+  automaitc: 'Automatic',
+};
+
 const mapCamperApiFilters = filters => {
   const apiParams = {};
 

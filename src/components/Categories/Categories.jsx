@@ -3,11 +3,11 @@ import { featureIconMapper } from '../../utils/formatingHelper';
 import Icon from '../Icon/Icon';
 import css from './Categories.module.css';
 
-const Categories = ({ camper }) => {
+const Categories = ({ camper, className = css.categoryList }) => {
   const vehicleFeatures = mapVehicleFeatures(camper);
 
   return (
-    <ul className={css.categoryList}>
+    <ul className={className}>
       {vehicleFeatures.map(feature => {
         let iconId = featureIconMapper(feature);
 

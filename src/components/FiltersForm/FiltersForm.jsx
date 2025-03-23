@@ -2,27 +2,18 @@ import { Formik, Form, Field } from 'formik';
 import { setFilters, resetFilters } from '../../redux/filtersSlice';
 import { useDispatch } from 'react-redux';
 import { fetchCampers } from '../../redux/camperOps';
-import { mapCamperApiFilters } from '../../utils/apiFilterMapper';
+import {
+  mapCamperApiFilters,
+  bodyTypes,
+  bodyTypesLabels,
+  featureLabels,
+} from '../../utils/apiFilterMapper';
 import { resetCampers } from '../../redux/campersSlice';
 import css from './FiltersForm.module.css';
 import Icon from '../Icon/Icon';
 import clsx from 'clsx';
 import { featureIconMapper } from '../../utils/formatingHelper';
 import SubmitBtn from '../SubmitBtn/SubmitBtn';
-
-const bodyTypes = ['panelTruck', 'fullyIntegrated', 'alcove'];
-const bodyTypesLabels = {
-  panelTruck: 'Van',
-  fullyIntegrated: 'Fully Integrated',
-  alcove: 'Alcove',
-};
-const featureLabels = {
-  AC: 'AC',
-  bathroom: 'Bathroom',
-  TV: 'TV',
-  kitchen: 'Kitchen',
-  automaitc: 'Automatic',
-};
 
 const FiltersForm = () => {
   const dispatch = useDispatch();
@@ -84,9 +75,9 @@ const FiltersForm = () => {
                           )
                         }
                       />
-                      <div>
+                      <span>
                         <Icon id={featureIconMapper(feature)} />
-                      </div>
+                      </span>
                       {featureLabels[feature]}
                     </label>
                   </li>
@@ -110,9 +101,9 @@ const FiltersForm = () => {
                         value={type}
                         checked={values.bodyType === type}
                       />
-                      <div>
+                      <span>
                         <Icon id={featureIconMapper(type)} />
-                      </div>
+                      </span>
                       {bodyTypesLabels[type]}
                     </label>
                   </li>

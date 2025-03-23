@@ -1,7 +1,7 @@
 import Icon from '../Icon/Icon';
 import css from './Rating.module.css';
 
-const Rating = ({ camper }) => {
+const Rating = ({ camper, className = '' }) => {
   const ratingValue = camper.rating?.toFixed(1);
   const reviewCount = camper.reviews?.length;
 
@@ -13,7 +13,7 @@ const Rating = ({ camper }) => {
         height={16}
         className={css.ratingGoldStar}
       />
-      <span>
+      <span className={className}>
         {ratingValue} ({reviewCount} Reviews)
       </span>
     </div>
