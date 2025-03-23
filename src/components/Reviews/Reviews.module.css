@@ -1,3 +1,52 @@
 .reviews {
   width: 631px;
+  padding-top: 56px;
+}
+
+.avatar {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--badges);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: var(--button);
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.33;
+}
+
+.author {
+  display: flex;
+  gap: 16px;
+  padding-bottom: 16px;
+}
+
+.author .name {
+  color: var(--main);
+  font-family: Inter;
+}
+
+.starBar {
+  display: flex;
+  gap: 4px;
+}
+
+.starBar span {
+  width: 16px;
+  height: 16px;
+}
+
+.comment {
+  color: var(--text);
+  font-family: Inter;
+}
+
+.reviewsList {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
 }
