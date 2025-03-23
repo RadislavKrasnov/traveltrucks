@@ -1,4 +1,5 @@
 import { mapVehicleFeatures } from '../../utils/apiFilterMapper';
+import { featureIconMapper } from '../../utils/formatingHelper';
 import Icon from '../Icon/Icon';
 import css from './Categories.module.css';
 
@@ -8,13 +9,7 @@ const Categories = ({ camper }) => {
   return (
     <ul className={css.categoryList}>
       {vehicleFeatures.map(feature => {
-        let iconId = feature;
-
-        if (['automatic', 'manual'].includes(iconId)) {
-          iconId = 'transmission';
-        } else if (['hybrid', 'petrol', 'diesel'].includes(iconId)) {
-          iconId = 'engine';
-        }
+        let iconId = featureIconMapper(feature);
 
         return (
           <li key={feature} className={css.category}>

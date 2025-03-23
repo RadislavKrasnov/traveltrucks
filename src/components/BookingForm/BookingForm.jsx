@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 import { useId, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectCamper } from '../../redux/campersSlice';
+import SubmitBtn from '../SubmitBtn/SubmitBtn';
 
 const BookingForm = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -57,7 +58,7 @@ const BookingForm = () => {
           <Field as="textarea" id={commentId} name="comment" />
           <ErrorMessage name="comment" component="div" className="error" />
 
-          <button type="submit">Send</button>
+          <SubmitBtn text="Send" />
         </Form>
       )}
     </Formik>

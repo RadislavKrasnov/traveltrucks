@@ -7,6 +7,8 @@ import { resetCampers } from '../../redux/campersSlice';
 import css from './FiltersForm.module.css';
 import Icon from '../Icon/Icon';
 import clsx from 'clsx';
+import { featureIconMapper } from '../../utils/formatingHelper';
+import SubmitBtn from '../SubmitBtn/SubmitBtn';
 
 const bodyTypes = ['panelTruck', 'fullyIntegrated', 'alcove'];
 const bodyTypesLabels = {
@@ -82,7 +84,9 @@ const FiltersForm = () => {
                           )
                         }
                       />
-                      <Icon id={feature} />
+                      <div>
+                        <Icon id={featureIconMapper(feature)} />
+                      </div>
                       {featureLabels[feature]}
                     </label>
                   </li>
@@ -106,7 +110,9 @@ const FiltersForm = () => {
                         value={type}
                         checked={values.bodyType === type}
                       />
-                      <Icon id={type} />
+                      <div>
+                        <Icon id={featureIconMapper(type)} />
+                      </div>
                       {bodyTypesLabels[type]}
                     </label>
                   </li>
@@ -114,7 +120,7 @@ const FiltersForm = () => {
               </ul>
             </div>
           </fieldset>
-          <button type="submit">Search</button>
+          <SubmitBtn text="Search" />
         </Form>
       )}
     </Formik>

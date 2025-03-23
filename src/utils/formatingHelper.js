@@ -19,4 +19,18 @@ const trimDescription = description => {
     : trimmed + '...';
 };
 
-export { formatPrice, trimDescription };
+const featureIconMapper = feature => {
+  let iconId = feature;
+
+  if (['automatic', 'manual', 'automaitc'].includes(iconId)) {
+    iconId = 'transmission';
+  }
+
+  if (['hybrid', 'petrol', 'diesel'].includes(iconId)) {
+    iconId = 'engine';
+  }
+
+  return iconId;
+};
+
+export { formatPrice, trimDescription, featureIconMapper };

@@ -18,6 +18,7 @@ const vehicleFeatures = [
   'microwave',
   'gas',
   'water',
+  'TV',
 ];
 
 const mapCamperApiFilters = filters => {
