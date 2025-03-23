@@ -13,7 +13,7 @@ const Icon = ({
       className={className}
       aria-hidden="true"
     >
-      <use href={`/src/assets/sprite.svg#${id}`} />
+      <use href={`/src/assets/sprite/sprite.svg#${id}`} />
     </svg>
   );
 };
