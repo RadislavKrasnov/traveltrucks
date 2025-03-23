@@ -1,8 +1,9 @@
+import clsx from 'clsx';
 import css from './SubmitBtn.module.css';
 
-const SubmitBtn = ({ text }) => {
+const SubmitBtn = ({ text, className = '' }) => {
   return (
-    <button type="submit" className={css.btn}>
+    <button type="submit" className={clsx(css.btn, className)}>
       {text}
     </button>
   );

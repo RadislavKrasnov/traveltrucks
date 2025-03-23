@@ -77,6 +77,10 @@ const CamperPage = () => {
             <div className={css.outletBlockWrapper}>
               <Outlet />
               <div className={css.booking}>
+                <div className={css.titleWrapper}>
+                  <h3>Book your campervan now</h3>
+                  <p>Stay connected! We are always ready to help you.</p>
+                </div>
                 <BookingForm />
               </div>
             </div>

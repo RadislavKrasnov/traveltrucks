@@ -7,9 +7,11 @@ import { useId, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectCamper } from '../../redux/campersSlice';
 import SubmitBtn from '../SubmitBtn/SubmitBtn';
+import css from './/BookingForm.module.css';
 
 const BookingForm = () => {
   const [selectedDate, setSelectedDate] = useState(null);
+  const [isActive, setIsActive] = useState(false);
   const camper = useSelector(selectCamper);
   const nameId = useId();
   const emailId = useId();
@@ -36,12 +38,24 @@ const BookingForm = () => {
       onSubmit={handleSubmit}
     >
       {({ setFieldValue }) => (
-        <Form>
-          <Field type="text" id={nameId} name="name" />
-          <ErrorMessage name="name" component="div" className="error" />
+        <Form className={css.bookingForm}>
+          <Field
+            type="text"
+            id={nameId}
+            name="name"
+            className={css.textField}
+            placeholder="Name*"
+          />
+          <ErrorMessage name="name" component="div" className={css.error} />
 
-          <Field type="email" id={emailId} name="email" />
-          <ErrorMessage name="email" component="div" className="error" />
+          <Field
+            type="email"
+            id={emailId}
+            name="email"
+            className={css.textField}
+            placeholder="Email*"
+          />
+          <ErrorMessage name="email" component="div" className={css.error} />
 
           <DatePicker
             selected={selectedDate}
@@ -49,16 +63,28 @@ const BookingForm = () => {
               setFieldValue('date', date);
               setSelectedDate(date);
             }}
+            onFocus={() => setIsActive(true)}
+            onBlur={() => setIsActive(selectedDate !== null)}
             dateFormat="yyyy-MM-dd"
-            className="custom-datepicker"
+            className={css.datePicker}
             minDate={new Date()}
+            placeholderText={
+              isActive ? 'Select a date between today' : 'Booking date'
+            }
           />
-          <ErrorMessage name="date" component="div" className="error" />
+          <ErrorMessage name="date" component="div" className={css.error} />
 
-          <Field as="textarea" id={commentId} name="comment" />
-          <ErrorMessage name="comment" component="div" className="error" />
+          <Field
+            as="textarea"
+            id={commentId}
+            name="comment"
+            className={css.textarea}
+            rows="5"
+            placeholder="Comment"
+          />
+          <ErrorMessage name="comment" component="div" className={css.error} />
 
-          <SubmitBtn text="Send" />
+          <SubmitBtn text="Send" className={css.bookBtn} />
         </Form>
       )}
     </Formik>

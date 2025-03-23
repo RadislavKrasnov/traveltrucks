@@ -74,6 +74,10 @@
 
 .booking {
   width: 641px;
+  border-radius: 10px;
+  border: 1px solid var(--gray-light);
+  padding: 44px;
+  margin-top: 44px;
 }
 
 .active::after {
@@ -85,4 +89,8 @@
   position: absolute;
   bottom: -28px;
   left: 0;
+}
+
+.titleWrapper {
+  padding-bottom: 24px;
 }
