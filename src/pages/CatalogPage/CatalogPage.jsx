@@ -7,11 +7,15 @@ import FiltersForm from '../../components/FiltersForm/FiltersForm';
 import Header from '../../components/Header/Header';
 import css from './CatalogPage.module.css';
 import clsx from 'clsx';
+import { resetCampers } from '../../redux/campersSlice';
+import { resetFilters } from '../../redux/filtersSlice';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(resetFilters());
+    dispatch(resetCampers());
     dispatch(fetchCampers({}));
   }, [dispatch]);
 
