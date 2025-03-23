@@ -10,6 +10,7 @@ import Rating from '../../components/Rating/Rating';
 import { formatPrice } from '../../utils/formatingHelper';
 import css from './CamperPage.module.css';
 import clsx from 'clsx';
+import Loader from '../../components/Loader/Loader';
 
 const CamperPage = () => {
   const { id } = useParams();
@@ -21,7 +22,7 @@ const CamperPage = () => {
     dispatch(fetchCamperById(id));
   }, [dispatch, id]);
 
-  if (!camper) return;
+  if (!camper) return <Loader />;
 
   const buildLinkClass = ({ isActive }) => {
     return clsx(css.navLink, isActive && css.active);

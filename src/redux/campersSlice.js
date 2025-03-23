@@ -60,6 +60,7 @@ export const selectCamper = state => state.campers.camper;
 export const selectTotal = state => state.campers.total;
 export const selectPage = state => state.campers.page;
 export const selectError = state => state.campers.error;
+export const selectLoading = state => state.campers.loading;
 
 export const { incrementPage, resetCampers } = campersSlice.actions;
 export default campersSlice.reducer;
